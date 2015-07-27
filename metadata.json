@@ -14,7 +14,7 @@
     },
     {
       "name": "nanliu/archive",
-      "version_requirement": ">= 0.1.7 < 1.0.0"
+      "version_requirement": ">= 0.4.0 < 1.0.0"
     }
   ],
   "requirements": [

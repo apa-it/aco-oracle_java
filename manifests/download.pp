@@ -33,14 +33,16 @@ class oracle_java::download {
   # download archive
   if $oracle_java::format_real == 'rpm' {
     archive { "/usr/java/${oracle_java::filename}":
-      cookie  => 'oraclelicense=accept-securebackup-cookie',
-      source  => $oracle_java::downloadurl,
-      cleanup => false,
-      require => File['/usr/java'],
+      provider => 'wget',
+      cookie   => 'oraclelicense=accept-securebackup-cookie',
+      source   => $oracle_java::downloadurl,
+      cleanup  => false,
+      require  => File['/usr/java'],
     }
   } else {
     # also extract and clean up if tar.gz
     archive { "/usr/java/${oracle_java::filename}":
+      provider     => 'wget',
       cookie       => 'oraclelicense=accept-securebackup-cookie',
       source       => $oracle_java::downloadurl,
       cleanup      => true,

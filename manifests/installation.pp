@@ -503,6 +503,7 @@ define oracle_java::installation ($version = $name, $type = 'jre', $check_checks
 
   # download, extract and cleanup archive
   archive { "/usr/java/${filename}":
+    provider     => 'wget',
     cookie       => 'oraclelicense=accept-securebackup-cookie',
     source       => $downloadurl,
     cleanup      => true,
